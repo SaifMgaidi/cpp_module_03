@@ -5,8 +5,10 @@ int	main(void)
 	std::cout << "---------constructor--------------------\n";
 	ClapTrap	one("one");
 	ClapTrap	two(one);
-	ClapTrap	three = two;
-	ClapTrap	four;
+	ClapTrap	three;
+	ClapTrap	four("saif");
+
+	three = four;
 
 	std::cout << "\n---------normal case--------------------\n";
 

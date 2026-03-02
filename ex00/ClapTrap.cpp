@@ -16,9 +16,10 @@ ClapTrap::ClapTrap(std::string name)
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
+:	name_(other.name_), hitPoints_(other.hitPoints_),
+	energyPoints_(other.energyPoints_), attackDamage_(other.attackDamage_)
 {
 	std::cout << "ClapTrap copy constructor called\n";
-	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
