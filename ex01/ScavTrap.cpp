@@ -27,25 +27,14 @@ ScavTrap::ScavTrap(std::string name)
 ScavTrap::ScavTrap(const ScavTrap& other)
 :	ClapTrap(other)
 {
-	this->name_ = other.name_;
-	this->hitPoints_ = other.hitPoints_;
-	this->energyPoints_ = other.energyPoints_;
-	this->attackDamage_ = other.attackDamage_;
 	std::cout << "ScavTrap copy constructor called for \'" << name_ << "\'\n";
-
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
+	std::cout << "ScavTrap copy assignement operator called for \'" << name_ << "\'\n";
 	if (this != &other)
-	{
-		this->name_ = other.name_;
-		this->hitPoints_ = other.hitPoints_;
-		this->energyPoints_ = other.energyPoints_;
-		this->attackDamage_ = other.attackDamage_;
-		std::cout << "ScavTrap copy assignement operator called for \'" << name_ << "\'\n";
-
-	}
+		ClapTrap::operator=(other);
 	return (*this);
 }
 
@@ -53,11 +42,19 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called for " << name_ << "\n";
+	std::cout << "ScavTrap destructor called for \'" << name_ << "\'\n";
 }
 
 
 // -------------------Member Functions------------------------------------
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (hitPoints_ <= 0 || energyPoints_ <= 0)
+		return ;
+	energyPoints_--;
+	std::cout << "ScavTrap " << name_ << " attacks " << target << ", causing " << attackDamage_ <<  " points of damage!\n";
+}
 
 void	ScavTrap::guardGate()
 {

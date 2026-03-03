@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = scavtrap
 
 RM = rm -rf
 
@@ -6,6 +6,7 @@ CC = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra -I.
 
 SRC =	./ClapTrap.cpp \
+		./ScavTrap.cpp \
 		./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
